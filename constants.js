@@ -1,0 +1,17 @@
+const APIKEY = process.env.APIKEY;
+const PROJECTID = process.env.PROJECTID;
+const STORAGEBUCKET = process.env.STORAGEBUCKET;
+const MESSAGINGSENDERID = process.env.MESSAGINGSENDERID;
+const AUTHDOMAIN = process.env.AUTHDOMAIN;
+const APPID = process.env.APPID;
+const MEASUREMENTID = process.env.MEASUREMENTID;
+
+export {
+  APIKEY,
+  PROJECTID,
+  STORAGEBUCKET,
+  MEASUREMENTID,
+  MESSAGINGSENDERID,
+  AUTHDOMAIN,
+  APPID,
+};
