@@ -7,19 +7,22 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../../config";
+import { auth } from "../../../config";
+import { setSessionStorage } from "../utils";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const nav = useNavigate();
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, loginDetails.email, loginDetails.password)
-      .then((userCredential) => {
-        console.log(userCredential);
+      .then((user) => {
+        setSessionStorage("isLoggedIn", "true");
+        nav("/myCards");
       })
       .catch((error) => {
         const errorCode = error.code;
